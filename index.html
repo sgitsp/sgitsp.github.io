@@ -80,23 +80,20 @@ I'm not smart, just wear glasses • Speak Lorem Ipsum. Powered by GitHub and 4r
 </head>
 <body>
 	<!-- Hide scrollbar -->
-	<style>
-		#parent{
-			height: 100%;
-    			width: 100%;
-    			overflow: hidden;
-			}
-
-		#child{
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-    			padding-right: 15px; /* Increase this value for cross-browser compatibility */
-			}
-	</style>
-	
-
-	
+		html, body {
+			padding: 0;
+			margin: 0;
+		 	overflow: hidden;
+		}
+		#container {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: -15px;
+			bottom: 0;	
+			padding-right: 15px;
+			overflow-y: scroll;
+		}
 	<!-- End of Hide scrollbar -->
 	
 	<!-- Preloader -->
