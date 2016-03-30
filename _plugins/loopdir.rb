@@ -1,7 +1,3 @@
-# inspired by
-# - https://gist.github.com/jgatjens/8925165
-# - http://simon.heimlicher.com/articles/2012/02/01/jekyll-directory-listing
-
 module Jekyll
   class Loopdir < Liquid::Block
     include Liquid::StandardFilters
