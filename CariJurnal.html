@@ -80,7 +80,7 @@ in Yogyakarta, Indonesia
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
-	</script>
+</script>
 	
 	<style>
 		/**
@@ -218,11 +218,15 @@ buttons {
 }
 
 
-.button:hover  {
-                background-color:#fafafa;
-                color:#207cca;
-}
 
+
+
+
+
+/* Do no display the count of search results */    
+.gsc-result-info {
+     display: none; 
+}
 
 /* Hide the Google branding in search results */
 .gcsc-branding {
@@ -276,12 +280,13 @@ buttons {
   <!-- Side drawer content goes here -->
 		<div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title"><center><img src="images/logojurnal.jpg" width="150" width="120"></center></div>
 		
-		<div class="search-box">
+		
 			<!-- Google CSE Search Box Begins --> 
 			<gcse:searchbox>
 			</gcse:searchbox>
 			<!-- Google CSE Search Box Ends -->
-		</div> 
+		<br/>
+		<div class="search-box"></div> 
 		
 		<div class="mui-divider"></div>
 		<ul>
