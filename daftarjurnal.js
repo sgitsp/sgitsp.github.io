@@ -1,6 +1,6 @@
 var options = {
-  valueNames: [ 'nama', 'tanggal', 'tautan' ],
-  item: '<li><h3 class="nama"></h3><p class="tanggal"></p><p class="tautan"><a href=""tautan"">"tautan"</a></p></li>'
+  valueNames: [ 'nama', 'tautan' ],
+  item: '<li><h3 class="nama"></h3><p class="tautan"></p></li>'
 };
 
 var values = [{
