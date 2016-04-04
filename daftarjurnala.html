@@ -111,10 +111,10 @@ input:focus {
 </head>
 
 <body>
-	<h2>Daftar Jurnal Online</h2>
-
+	<h2>Daftar Alamat Jurnal Online</h2>
+	<p>Laman ini berisi daftar alamat sumber penelusuran pada laman <a href="carijurnal"></a></p>
+	<br/>
 	
-
 	<div id="jurnal">
 	<input class="search" placeholder="Cari" />
 	<button class="sort" data-sort="nama">
@@ -141,9 +141,14 @@ input:focus {
 	</ul>
 	</div>
 
+	<script>
+	var options = {
+	valueNames: [ 'nama', 'tautan' ]
+	};
 
+	var userList = new List('jurnal', options);
+	</script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
-	<script src='assets/js/daftarlist.js'></script>
 
 </body>
 </html>
