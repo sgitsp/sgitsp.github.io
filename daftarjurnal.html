@@ -13,7 +13,7 @@ in Yogyakarta, Indonesia
 <html>
 <head>
 		<link rel="shortcut icon" href="favicon.ico" />
-		<title>Daftar Alamat Jurnal Online</title>
+		<title>Daftar Jurnal Online | Sigit Purwadi's Official</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<style>
 h2 {
@@ -112,23 +112,50 @@ input:focus {
 
 <body>
 	<div 
-	<h2>Daftar Alamat Jurnal Online</h2>
+	<h2>Daftar Jurnal Online</h2>
 	<p>Laman ini berisi daftar alamat sumber penelusuran pada laman <a href="carijurnal">pencarian jurnal online</a></p>
+	<p><i>Update tanggal 3 April 2016</i></p>
 	<br/>
 	
 	<div id="users">
-  <input class="search" placeholder="Cari.." />
+  <input class="search" placeholder="Search" />
   <button class="sort" data-sort="nama">
     Urutkan Nama
   </button>
 
-  <ul class="list"></ul>
+  <ul class="list">
+	<li>
+      <h3 class="nama">Institut Teknologi Sepuluh Nopember Surabaya </h3>
+	  <p class="tanggal">Ditambah pada 3 Maret 2016</p>
+      <p class="tautan"><a href="http://digilib.its.ac.id/repository/Journal">http://digilib.its.ac.id/repository/Journal</a></p>
+    </li>
+	<li>
+      <h3 class="nama">Universitas Kristen Petra</h3>
+	  <p class="tanggal">Ditambah pada 3 Maret 2016</p>
+      <p class="tautan"><a href="http://digilib.petra.ac.id/">http://digilib.petra.ac.id/</a></p>
+    </li>
+    <li>
+      <h3 class="nama">Universitas Sriwijaya</h3>
+	  <p class="tanggal">Ditambah pada 3 Maret 2016</p>
+      <p class="tautan"><a href="http://digilib.unsri.ac.id/admin/jurnal-kepustakawanan/mrlist/40/">http://digilib.unsri.ac.id/admin/jurnal-kepustakawanan/mrlist/40/</a></p>
+    </li>
+	<li>
+      <h3 class="nama">LIPI</h3>
+	  <p class="tanggal">Ditambah pada 3 Maret 2016</p>
+      <p class="tautan"><a href="http://www.jurnal.lipi.go.id/">http://www.jurnal.lipi.go.id/</a></p>
+    </li>
+  </ul>
 
 </div>
 <script src="http://listjs.com/no-cdn/list.js"></script>
-<script src="daftarjurnal.js"></script>
 
-	
+	<script>
+	var options = {
+  valueNames: [ 'nama', 'tautan' ]
+};
+
+var userList = new List('users', options);
+	</script>
 	
 	<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
 
