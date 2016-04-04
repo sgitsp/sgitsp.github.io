@@ -5,7 +5,6 @@ var options = {
 
 var values = [{
     nama: 'Jonny Strömberg',
-	tanggal: 
     tautan: 1986
   },
   {
@@ -14,7 +13,6 @@ var values = [{
   },
   {
     nama: 'LIPI',
-	tanggal: 3 April 2016
     tautan: http://www.jurnal.lipi.go.id/
 }];
 
