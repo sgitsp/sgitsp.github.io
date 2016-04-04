@@ -1,5 +1,222 @@
-Mesin pencari jurnal online. Cara gampang cari jurnal, artikel ilmiah, paper, skripsi, tesis, disertasi, dll., lebih hemat waktu, hemat tenaga, dan kuota 😂
+<html>
+<head>
 
-Aplikasi ini sedang dalam proses pembuatan dan pengumpulan sumber penelusuran. Mohon bantuan, saran, dan rekomendasi sumber/laman jurnal online universitas/instansi dalam/luar negeri (contoh: journal.ui.ac.id), untuk dijadiin sumber penelusuran jurnal di https://sigit.purwadi.web.id/carijurnal. Daftar alamatnya bisa kirim via WA/LINE 0856 4249 1996 atau BBM 5B070A52, insyaAllah bermanfaat.
+	<style>
+		/**
+ * Body CSS
+ */
+html,
+body {
+  height: 100%;
+  background-color: #eee;
+}
 
-Daftar laman sumber jurnal yang sudah diinput hingga hari ini https://sigit.purwadi.web.id/daftarjurnal
+html,
+body,
+input,
+textarea,
+buttons {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+
+/**
+ * Layout CSS
+ */
+#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  transition: left 0.2s;
+}
+
+#sidedrawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  left: -200px;
+  overflow: auto;
+  z-index: 2;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+#content-wrapper {
+  min-height: 100%;
+  overflow-x: hidden;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+
+  /* sticky bottom */
+  margin-bottom: -160px;
+  padding-bottom: 160px;
+}
+
+#footer {
+  height: 160px;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+}
+
+@media (min-width: 768px) {
+  #header {
+    left: 200px;
+  }
+
+  #sidedrawer {
+    transform: translate(200px);
+  }
+
+  #content-wrapper {
+    margin-left: 200px;
+  }
+
+  #footer {
+    margin-left: 200px;
+  }
+
+  body.hide-sidedrawer #header {
+    left: 0;
+  }
+
+  body.hide-sidedrawer #sidedrawer {
+    transform: translate(0px);
+  }
+
+  body.hide-sidedrawer #content-wrapper {
+    margin-left: 0;
+  }
+
+  body.hide-sidedrawer #footer {
+    margin-left: 0;
+  }
+}
+
+
+/**
+ * Toggle Side drawer
+ */
+#sidedrawer.active {
+  transform: translate(200px);
+}
+
+
+/**
+ * Header CSS
+ */
+.sidedrawer-toggle {
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 10px;
+}
+
+.sidedrawer-toggle:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/**
+ * Footer CSS
+ */
+#footer {
+  background-color: #0288D1;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+
+/* Do no display the count of search results */    
+.gsc-result-info {
+     display: none; 
+}
+
+/* Hide the Google branding in search results */
+.gcsc-branding {
+    display: none; 
+}
+
+
+.cse input.gsc-input,input.gsc-input{background:url(images/carijurnal.png) no-repeat 0% 0% white !important;}
+	
+
+	</style>
+
+	<script>
+			jQuery(function($) {
+  var $bodyEl = $('body'),
+      $sidedrawerEl = $('#sidedrawer');
+
+
+  function showSidedrawer() {
+    // show overlay
+    var options = {
+      onclose: function() {
+        $sidedrawerEl
+          .removeClass('active')
+          .appendTo(document.body);
+      }
+    };
+
+    var $overlayEl = $(mui.overlay('on', options));
+
+    // show element
+    $sidedrawerEl.appendTo($overlayEl);
+    setTimeout(function() {
+      $sidedrawerEl.addClass('active');
+    }, 20);
+  }
+
+
+  function hideSidedrawer() {
+    $bodyEl.toggleClass('hide-sidedrawer');
+  }
+
+
+  $('.js-show-sidedrawer').on('click', showSidedrawer);
+  $('.js-hide-sidedrawer').on('click', hideSidedrawer);
+});
+	</script>
+</head>
+
+<body>
+<div id="sidedrawer" class="mui--no-user-select">
+  <!-- Side drawer content goes here -->
+		<div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title"><center><img src="images/logojurnal.png" width="100" height="65"></center></div>
+</div>
+
+	<header id="header">
+	<div class="mui-appbar mui--appbar-line-height">
+		<div class="mui-container-fluid">
+		<a class="sidedrawer-toggle mui--visible-xs-inline-block js-show-sidedrawer"><i class="fa fa-bars"></i></a>
+		<a class="sidedrawer-toggle mui--hidden-xs js-hide-sidedrawer"><i class="fa fa-bars"></i></a>
+		</div>
+	</div>
+	</header>
+	
+	
+	<div id="content-wrapper">
+	<div class="mui--appbar-height"></div>
+		<div class="mui-container-fluid">
+<p>Mesin pencari jurnal online. Cara gampang cari jurnal, artikel ilmiah, paper, skripsi, tesis, disertasi, dll., lebih hemat waktu, hemat tenaga, dan kuota. hehe.. </p>
+
+<p/>Aplikasi ini sedang dalam proses pengumpulan sumber penelusuran. Oleh karena itu, mohon bantuan, saran, dan rekomendasi sumber/laman jurnal online universitas/instansi dalam/luar negeri (contoh: journal.ui.ac.id), untuk dijadiin sumber penelusuran jurnal di https://sigit.purwadi.web.id/carijurnal.<br/>
+Daftar alamatnya bisa kirim via WA/LINE <b>0856 4249 1996</b> atau BBM <b>5B070A52</b>, insyaAllah bermanfaat.</p>
+
+<p>Daftar laman sumber jurnal yang sudah diinput hingga hari ini <a href="https://sigit.purwadi.web.id/daftarjurnal">di sini</a></p>
+	</div>
+	</div>
+</body>
+</html>
