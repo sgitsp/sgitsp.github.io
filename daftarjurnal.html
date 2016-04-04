@@ -19,12 +19,12 @@ in Yogyakarta, Indonesia
 h2 {
   font-family:sans-serif;
 }
-.daftar {
+.list {
   font-family:sans-serif;
   margin:0;
   padding:20px 0 0;
 }
-.daftar > li {
+.list > li {
   display:block;
   background-color: #eee;
   padding:10px;
@@ -111,43 +111,23 @@ input:focus {
 </head>
 
 <body>
+	<div 
 	<h2>Daftar Alamat Jurnal Online</h2>
-	<p>Laman ini berisi daftar alamat sumber penelusuran pada laman <a href="carijurnal"></a></p>
+	<p>Laman ini berisi daftar alamat sumber penelusuran pada laman <a href="carijurnal">pencarian jurnal online</a></p>
 	<br/>
 	
-	<div id="jurnal">
-	<input class="search" placeholder="Cari" />
-	<button class="sort" data-sort="nama">
-    Urutkan Berdasarkan Nama
-	</button>
+	<div id="users">
+  <input class="search" placeholder="Cari.." />
+  <button class="sort" data-sort="nama">
+    Urutkan Nama
+  </button>
 
-	<ul class="daftar">
-		<li>
-		<h3 class="nama">Universitas Indonesia</h3>
-		<p class="tautan"><a href="http://journal.ui.ac.id">http://journal.ui.ac.id</a></p>
-		</li>
-		<li>
-		<h3 class="nama">Jonas Arnklint</h3>
-		<p class="tautan">1985</p>
-		</li>
-		<li>
-		<h3 class="nama">Martina Elm</h3>
-		<p class="tautan">1986</p>
-		</li>
-		<li>
-		<h3 class="nama">Gustaf Lindqvist</h3>
-		<p class="tautan">1983</p>
-		</li>
-	</ul>
+  <ul class="list"></ul>
+
 	</div>
+<script src="daftarjurnal.js"></script>
 
-	<script>
-	var options = {
-	valueNames: [ 'nama', 'tautan' ]
-	};
-
-	var userList = new List('jurnal', options);
-	</script>
+	
 	<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
 
 </body>
