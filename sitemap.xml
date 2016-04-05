@@ -10,4 +10,34 @@
   <lastmod>2015-11-13T19:37:03+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
+
+<url>
+			<loc>https://blog.purwadi.web.id/</loc>
+			<lastmod>2016-04-04T04:04:04+00:00</lastmod>
+			<changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://proxy.purwadi.web.id/</loc>
+  <lastmod>2016-04-04T04:04:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+
+<url>
+  <loc>https://repo.purwadi.web.id/</loc>
+  <lastmod>2016-04-04T04:04:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+
+<url>
+  <loc>https://sigit.purwadi.web.id/gallery</loc>
+  <lastmod>2016-04-04T04:04:04+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://sigit.purwadi.web.id/carijurnal</loc>
+  <lastmod>2016-04-04T04:04:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
 </urlset>
