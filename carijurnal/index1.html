@@ -274,7 +274,7 @@ buttons {
 <body>
 	<div id="sidedrawer" class="mui--no-user-select">
   <!-- Side drawer content goes here -->
-		<div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title"><center><img src="images/logojurnal.png" width="100" height="65"></center></div>
+		<div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title"><center><a href="/carijurnal"><img src="images/logojurnal.png" alt="Logo Pencarian Jurnal" width="100" height="65"></a></center></div>
 		
 		<br/>
 		
@@ -284,14 +284,20 @@ buttons {
 			<!-- Google CSE Search Box Ends -->
 		
 		<br/> 
-		Tidak menemukan yang Anda cari? Cobalah pencarian alternatif di bawah ini
+		<p>Belum menemukan yang Anda cari? Cobalah laman pencarian alternatif di bawah ini.</p>
 		<div class="mui-divider"></div>
 		<br/>
-		<div class="list-group">
-			<a class="list-group-item" href="https://sigit.purwadi.web.id/daftarjurnal" target="_blank"><i class="fa fa-book fa-fw"></i>&nbsp; Daftar Alamat Jurnal</a>
-			<a class="list-group-item" href="https://sigit.purwadi.web.id/daftarjurnal" target="_blank"><i class="fa fa-book fa-fw"></i>&nbsp; Portal Garuda</a>
-			<div class="mui-divider"></div>
-			<a class="list-group-item" href="https://sigit.purwadi.web.id/daftarjurnal" target="_blank"><i class="fa fa-book fa-fw"></i>&nbsp; Daftar Alamat Jurnal</a>
+		<ul class="fa-ul">
+			<li><a href="http://garuda.dikti.go.id" target="_blank"><i class="fa fa-book fa-fw"></i>&nbsp; Garuda Dikti</a></li>
+			
+			<li><a href="http://id.portalgaruda.org" target="_blank"><i class="fa fa-book fa-fw"></i>&nbsp; PortalGaruda.org</a></li>
+			
+			<li><a href="https://scholar.google.co.id" target="_blank"><i class="fa fa-book fa-fw"></i>&nbsp; Google Cendekia</a></li>
+			</ul>
+			
+			<br /><br />
+			<div class="mui-divider"><br/>
+			<a href="https://sigit.purwadi.web.id/daftarjurnal" target="_blank"><i class="fa fa-book fa-fw"></i>&nbsp; Daftar Alamat Jurnal</a>
 		</div>
 		
 	</div>
@@ -301,7 +307,8 @@ buttons {
 		<div class="mui-container-fluid">
 		<a class="sidedrawer-toggle mui--visible-xs-inline-block js-show-sidedrawer"><i class="fa fa-bars"></i></a>
 		<a class="sidedrawer-toggle mui--hidden-xs js-hide-sidedrawer"><i class="fa fa-bars"></i></a>
-		<span class="mui--text-title mui--visible-xs-inline-block"><!--Cari Jurnal:--></span>
+		<!-- <span class="mui--text-title mui--hidden-xs-inline-block">Pencari Jurnal Online</span> -->
+		<span class="mui--text-title mui--visible-xs-inline-block"><h3>Pencari Jurnal Online</h3></span>
 		</div>
 	</div>
 	</header>
@@ -311,7 +318,6 @@ buttons {
 		<div class="mui--appbar-height"></div>
 		<div class="mui-container-fluid">
 		<br>
-		<h1>Pencari Jurnal Online</h1>
 		<gcse:searchresults>
 		</gcse:searchresults>
 		</div>
@@ -322,7 +328,15 @@ buttons {
 		Pencari Jurnal Online Indonesia. <br/>
 		Menelusuri karya ilmiah dengan akurat pada sumber penyedia jurnal gratis universitas maupun lembaga/instansi penelitian.<br/>
 		Anda bisa melihat daftar alamat jurnal online kami pada <a href="https://sigit.purwadi.web.id/daftarjurnal" target="_blank">halaman ini.</a><br/><br/>
-		Made by <a href="https://sigit.purwadi.web.id">Sigit Purwadi</a>
+		Made by <a href="https://sigit.purwadi.web.id">Sigit Purwadi</a><br/>
+		&copy; Copyright <script language="JavaScript" type="text/javascript">
+			 now = new Date
+			 theYear=now.getYear()
+			 if (theYear < 1900)
+    			theYear=theYear+1900
+			 document.write(theYear)
+			</script>. All rights reserved.
+		
 	</div>
 	</footer>
 	
