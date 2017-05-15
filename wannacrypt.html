@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:1494778508,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"6b57e7c640a6ebff7021b9b587970e97",petok:"6934da180cf85e9f00ec528e57ae2ba8fae65c3a-1494819066-1800",zone:"malwaretech.com",rocket:"0",apps:{"ga_key":{"ua":"UA-56814785-2","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=85b614c0f6/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link rel="shortcut icon" href="//intel.malwaretech.com/img/favicon.png">
+<title>Full Spectrum Cyber Pew Pew</title>
+<meta name="description" content="Live map showing realtime botnet check-ins around the world.">
+<link href="//intel.malwaretech.com/css/bootstrap.min.css" rel="stylesheet">
+<link href="//intel.malwaretech.com/css/bootstrap-theme.css" rel="stylesheet">
+<link href="//intel.malwaretech.com/css/elegant-icons-style.css" rel="stylesheet"/>
+<link href="//intel.malwaretech.com/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="//intel.malwaretech.com/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+<script src="//intel.malwaretech.com/js/jquery-1.8.3.min.js"></script>
+<script src="//intel.malwaretech.com/js/jquery-jvectormap-1.2.2.min.js?7"></script>
+<script src="//intel.malwaretech.com/js/jquery-jvectormap-world-mill-en.js"></script>
+<!--[if lt IE 9]>
+    <script src="//intel.malwaretech.com/js/html5shiv.js"></script>
+    <script src="//intel.malwaretech.com/js/respond.min.js"></script>
+    <script src="//intel.malwaretech.com/js/lte-ie7.js"></script>
+    <![endif]-->
+<script src="//intel.malwaretech.com/js/country_map.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-56814785-2']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
+/* ]]> */
+</script>
+</head>
+<body>
+<table class="table" id="bot-console" style="background-color: black; opacity: 0.7; position: absolute; left: 15px; bottom: 0px; z-index: 100; width: 300px; height: 100px; margin: 0px; padding: 0px; color: white;">
+<thead>
+<tr>
+<th>Country</th>
+<th>Botnet</th>
+</tr>
+</thead>
+<tbody id='con'>
+</tbody>
+</table>
+<div id="map" style="min-height: 350px; height:calc(100vh);"></div>
+<script>
+    var g_ws = null;
+    var g_mark_limit = 2000;
+    var g_con_limit = 6;
+    var g_i = 0;
+    var g_map = $("#map");
+    var g_con = $('#con');
+    pew = document.createElement("audio");
+    pew.setAttribute("src", "sounds/pew.mp3"), $("#connect-button").prop("disabled", !1);
+
+    var map = $('#map').vectorMap({
+        map: "world_mill_en",
+        realtime: true,
+        zoomOnScroll: !1,
+        regionStyle: {
+            initial: {
+                fill: "#000000"
+            }
+        },
+        markerStyle: {
+            initial: {
+                fill: "#2E9AFE"
+            }
+        },
+        series: {
+            regions: [{
+                scale: ["#000000", "#000000"],
+                normalizeFunction: "polynomial"
+            }]
+        }
+    });
+
+    g_map = map.vectorMap("get", "mapObject");
+
+    function HideConsole()
+    {
+        if($('#hide-console').is(":checked"))
+        {
+            $('#bot-console').hide();
+        }else{
+            $('#bot-console').show();
+        }
+
+    }
+
+    function legacy_marker(data) {
+        var colors = {
+            8:  {n: 'ramnit', c: '#aac88f'},
+            13: {n:'mirai', c: '#d8ebff'}
+        };
+
+        var bot = colors[data['b']];
+
+        var row =
+            '<tr height="40px" id="c' + g_i + '">' +
+            '<td width="50%"><img height="16px" width="16px" src="//intel.malwaretech.com/img/flags/' + data['cc'].toLowerCase() + '.png" /> '
+            + data['c'] +
+            '</td>' +
+            '<td width="25%"><b style="color: ' + bot['c'] + ';">' + bot['n'] + '</b></td></tr>';
+
+        data['b'] = bot['n'];
+        data['co'] = bot['c'];
+
+        add_row(row, data);
+    }
+
+    function new_marker(data)
+    {
+        var country = country_map[data['c']];
+
+        var row =
+            '<tr height="40px" id="c'+g_i+'">' +
+            '<td width="200px;"><img height="16px" width="16px" src="//intel.malwaretech.com/img/flags/' + data['c'].toLowerCase() + '.png" /> '
+            + country +
+            '</td>' +
+            '<td width="100px;"><b style="color:' + data['co'] + ';">' + data['b'] + '</b></td></tr>';
+
+        add_row(row, data);
+    }
+
+    function add_row(row, data) {
+        g_con.append(row);
+
+        if($('#con tr').length >= g_con_limit)
+            g_con.find("tr").first().remove();
+
+        g_con.animate({scrollTop: g_con.get(0).scrollHeight}, 0);
+        g_map.addMarker(g_i++, {latLng: [data['la'], data['lo']], name: data['b'], style: {fill: data['co'], r: 6}});
+        if(g_i >= g_mark_limit)
+            g_map.removeMarkers([g_i - g_mark_limit + 1]);
+
+
+        if($("#norse-mode").is(":checked")) {
+            var n = new Audio("sounds/pew.mp3");
+            n.volume = .2;
+            n.play()
+        }
+    }
+
+    function start() {
+        $("#connect-button").prop("disabled", !0);
+        if("WebSocket" in window) {
+            var ws = new WebSocket("wss://ws2.intel.malwaretech.com:443/");
+            ws.onmessage = function(e) {
+                var data = JSON.parse(e.data);
+                if(data['b'] == 'wcrypt')
+                switch (parseInt(data['s'])) {
+                    case 1:
+                        legacy_marker(data);
+                        break;
+
+                    case 2:
+                        new_marker(data);
+                        break;
+
+                    default:
+                        return server_error('error: ' + data['s']);
+                        break;
+                }
+            };
+
+            ws.onclose = function(e) {
+                map.removeAllMarkers();
+                g_con.text("");
+                server_error("Disconnected from server, please refresh to try again.");
+            };
+
+            g_ws = ws;
+        }else{
+            alert("Your browser doesn't support websocket m8");
+        }
+    }
+
+    function server_error(e) {
+        alert(e);
+        g_ws.close();
+    }
+    start();
+</script>
+</body>
+</html>
