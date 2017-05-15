@@ -61,7 +61,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     var g_map = $("#map");
     var g_con = $('#con');
     pew = document.createElement("audio");
-    pew.setAttribute("src", "sounds/pew.mp3"), $("#connect-button").prop("disabled", !1);
+    pew.setAttribute("src", "//intel.malwaretech.com/sounds/pew.mp3"), $("#connect-button").prop("disabled", !1);
 
     var map = $('#map').vectorMap({
         map: "world_mill_en",
@@ -146,7 +146,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 
         if($("#norse-mode").is(":checked")) {
-            var n = new Audio("sounds/pew.mp3");
+            var n = new Audio("//intel.malwaretech.com/sounds/pew.mp3");
             n.volume = .2;
             n.play()
         }
