@@ -1,1 +1,6 @@
-did:plc:kphx7c2gcxugkc42ex5at2zb
+{
+  id: 'did:plc:kphx7c2gcxugkc42ex5at2zb',
+  alsoKnownAs: 'https://sigit.purwadi.web.id',
+  verificationMethod: [...],
+  service: [{serviceEndpoint: 'https://purwadi.web.id'}]
+}
